@@ -1,75 +1,155 @@
-var myString = 'Studying javascript';
-    myNumber = 25;
-    myBoolean = true;
-    myNull = null;
-    myUndef = undefined;
+// 1
+console.log('#1')
 
-    console.log(myString);
-    console.log(myNumber);
-    console.log(myBoolean);
-    console.log(myNull);
-    console.log(myUndef);
+var defaultString = 'Default string',
+    str1 = '' || defaultString,
+    str2 = 'Some text' || defaultString;
 
-var myNumber = 250;
-    myString = 'Studying javascript';
-    myBoolean = true;
-    myNull = null;
-    myUndef = undefined;
+console.log(str1);
+console.log(str2);
 
-    console.log(typeof myNumber);
-    console.log(typeof myString);
-    console.log(typeof myBoolean);
-    console.log(typeof myNull); 
-    console.log(typeof myUndef);
+// 1 (option 2 )
+console.log('#1 (option 2 )')
+
+function outputLine (myString) {
+    if (myString) {
+        console.log(myString);
+    }
+    else {
+        console.log('Please enter a string');
+    }
+    return myString;
+}
+
+outputLine('Hello world');
+outputLine('');
+
+// 2
+console.log('#2')
+
+var browser =  {
+    name: 'Chrome',
+    release: 2008,
+    version: '73.0.3683.86'
+};
+
+console.log(browser);
+console.log(browser.name);
+console.log(browser.release);
+console.log(browser.version);
 
 
-var myNumb = 60.5;
-    console.log(myNumb.toFixed(2));
+// 2 (option 2)
+console.log('#2 (option 2 )')
 
-var i = 100;
-    console.log(i++);
-    console.log(i);
-    console.log(++i);
+var browser1 =  {
+    name: 'Chrome',
+    release: 2008,
+    version: '73.0.3683.86'
+};
 
-var i = 100;
-    console.log(i--);
-    console.log(i);
-    console.log(--i);
+console.log(browser1);
+console.log(browser1.name);
+console.log(browser1.release);
+console.log(browser1.version);
 
-var a = 10;
-    a +=5;
-    console.log(a);
-var b = 10;
-    b -=5;
-    console.log(b);
-var c = 20;
-    c *=5;
-    console.log(c);
-var d = 500;
-    d /=5;
-    console.log(d);
-var e = 13;
-    e %=5;
-    console.log(e);
+// 3
+console.log('#3')
 
-console.log(Math.PI);
+browser.myMethod = function() {
+    return browser.name + ' is is the best browser.';
+  }
+  
+console.log(browser);
+console.log(browser.myMethod());
 
-var n = 89.279;
-    console.log(Math.round(n));
+// 3 (option 2 )
+console.log('#3 (option 2 )')
 
-console.log(Math.round(Math.random()*10));
+var browser1 = Object.create({x: 10, y: 20});
 
-console.log(Math.pow(2,5));
+browser1.z = 30;
 
-var myString = 'Lorem ipsum dolor sit amet';
-    console.log(myString);
-    console.log(myString.length);
-    console.log(myString.substring(10,15));
-    console.log(myString.indexOf('dolo'));
-    console.log(myString.replace('dolor','newcode'));
+console.log(browser1);
+console.log(browser1.x);
+console.log(browser1.y);
+console.log(browser1.z);
 
-var myStr = 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsum, vero.';
-    console.log(myStr.toUpperCase());
-    console.log(myStr.toLowerCase());
-    console.log(myStr.split(' '));
-    console.log(myStr.split(''));
+// 4
+console.log('#4')
+
+var i;
+    for (var i = 1; i < 21; i++) {
+        if (i % 2 === 0){
+        console.log(i);
+        }
+    }
+
+// 5
+console.log('#5')
+
+var CityName = 'Kharkov',
+    Status;
+
+switch(CityName) {
+  case 'Kharkov': Status = 'City'; break;
+  case 'Andreevka': Status = 'Village'; break;
+  case 'Bezlyudovka': Status = 'Township'; break;
+  default: Status = 'somewhere in Ukraine';
+}
+
+console.log(CityName + ' ' + Status);
+
+// 5 (option 2 )
+console.log('#5 (option 2 )')
+
+var myNumber = 1000,
+    Number;
+switch (true) {
+    case '10020' : Number = '1003'; break;
+    case '10567' : Number = '1001'; break;
+    case '100' : Number = '1008'; break;
+    default: Number = 'random';
+}
+
+console.log(myNumber + ' ' + Number);
+
+//6
+console.log('#6')
+
+var x = 10;
+var text = x > 10 ? 'x больше 10' : x < 10 ? 'x меньше 10' : 'x равен 10';
+
+console.log(text);
+
+// 6 (option 2 )
+console.log('#6 (option 2 )')
+
+function categoryAge (age) {
+    age  < 100 ? console.log('больше'): age > 100 ? console.log('меньше'): console.log('равно');
+  }
+  
+categoryAge(90);
+categoryAge(120);
+categoryAge(100);
+
+// 7
+console.log('#7')
+
+var i = 0;
+while (i <= 7) {
+  console.log(i++);
+}
+
+// 8
+console.log('#8')
+
+function func (arg1, arg2, callback) {
+    console.log('Число ' + arg1 + ' в степени ' + arg2);
+    var arg3 = Math.pow(arg1,arg2);
+    callback(arg3);
+  }
+
+func (2, 4, function(result) {
+    console.log('Результат ' + result);
+  })
