@@ -1,83 +1,129 @@
 // 1
-console.log('#1')
+console.log('#1');
 
-var counter = (function () {
-  var count = 10;
-  return function (num) {
-    count = num !== undefined ? num : count;
-    return count++;
-  }
-}());
 
-console.log(counter());
-console.log(counter());
-console.log(counter(23));
-console.log(counter());
-console.log(counter(1000));
-console.log(counter());
-console.log(counter());
+var loremArr = ['Lorem ipsum', 'Blanditiis,eaque', 'lure,quis', 'lure,voluptatum', 'Maxime,veniam', 'Inventore,a', 'Eius,qui', 'Accusantium,amet', 'Nemo,eos', 'Vero,guos'];
 
-// 2
-console.log('#2(constructor)')
-
-var Person = {
-  constructor: function (name,age) {
-    this.name = name;
-    this.age = age;
-
+var loremArr0 = loremArr.filter(function(lorem){
+  if (lorem.indexOf('o') > -1)
+  {
     return this;
-  },
-  great: function () {
-    console.log('Hi, my name is' + this.name);
-  }
-};
+  } 
+})
 
-var jhon = Object.create(Person).constructor('Jhon', 35);
-var bob = Object.create(Person).constructor('Bob', 25);
-var mary = Object.create(Person).constructor('Mary', 25);
+console.log(loremArr0);
 
-console.log(jhon);
-console.log(bob);
-console.log(mary);
+// 1
+console.log('#1(option 2)');
 
-console.log(Person);
+let myloremArr = ['Lorem ipsum', 'Blanditiis,eaque', 'lure,quis', 'lure,voluptatum', 'Maxime,veniam', 'Inventore,a', 'Eius,qui', 'Accusantium,amet', 'Nemo,eos', 'Vero,guos'];
+    
+let isLetterInTheWord = (arr, letter) => arr.filter((word) => word.indexOf(letter) > -1);
+    
+console.log(isLetterInTheWord(myloremArr, 'o'));
 
 // 2
-console.log('#2')
+console.log('#2');
 
-var greet = function(){
-  return 'Hi! My name is ' + this.name + '. I am ' + this.age;
+var date = new Date()
+// var month = (date.getMonth() +1) < 10 ? '0' + (date.getMonth() +1) : (date.getMonth() +1);
+// var day = date.getDate() < 10 ? '0' + date.getDate() : date.getDate();
+// var hours = date.getHours() < 10 ? '0' + date.getHours() : date.getHours();
+// var minutes = date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes();
+
+// console.log(date.getFullYear() + '-' + month + '-' + day + ',' + hours + ':' + minutes);
+
+var d1 = new Date().toISOString();
+console.log(d1);
+
+var d2 = new Date().toLocaleString();
+console.log(d2);
+
+// 5
+console.log('#5(option 2)');
+
+function getDateAgo(date, days) {
+  date.setDate(date.getDate() - days);
+  return date.getDate();
 }
 
-var firstPerson = {
-  name: 'John',
-  age: 30,
-  greet: greet
+function getDateAgo(date, days) {
+  var dateCopy = new Date(date);
+
+  dateCopy.setDate(date.getDate() - days);
+  return dateCopy.getDate();
 }
 
-var secondPerson = {
-  name: 'Bob',
-  age: 18,
-  greet: greet
-}
+var date = new Date(2019, 3, 2);
 
-console.log(firstPerson.greet());
-console.log(secondPerson.greet());
+console.log( getDateAgo(date, 1) );
+console.log( getDateAgo(date, 2) ); 
+console.log( getDateAgo(date, 365) ); 
+
 
 // 3
+console.log('#3');
 
-var anotherPerson = {
-  name: 'Jeck',
-  age: 21,
-  _weight: 85,
-  get weight(){
-    return this._weight;
-  },
-  set weight(value){
-    this._weight = value;
-  },
-  greet: greet
+function getWeekDay(date) {
+  var day = ['воскресенье', 'понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота'];
+
+    return day[date.getDay()];
 }
 
-console.log(anotherPerson.weight);
-console.log(anotherPerson);
+var date = new Date();
+console.log(getWeekDay(date));
+
+// 3
+console.log('#3(option 2)');
+
+
+let getWeekDay1 = (d) => {
+	const date = new Date(d);
+  const days = ['воскресенье', 'понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота'];
+
+  return days[date.getDay()];
+}
+
+console.log( getWeekDay1('2019-04-01') );
+
+// 4
+console.log('#4');
+
+function getLocalDay(date) {
+  var day = date.getDay();
+
+  return day === 0 ? 7 : day;
+}
+
+var date = new Date();
+console.log(getLocalDay(date));
+
+// 4
+console.log('#4(option 2)');
+
+let getLocalDay1 = (d) => {
+	const date = new Date(d);
+  let day = date.getDay();
+
+  if (day == 0) {
+    day = 7;
+  }
+  return day;
+}
+
+console.log(getLocalDay1('2019-04-01'));
+
+// 5
+console.log('#5');
+
+function getDateAgo(date, days) {
+  date.setDate(date.getDate() - days);
+  var year = date.getFullYear();
+  var month = (date.getMonth() +1) < 10 ? '0' + (date.getMonth() +1) : (date.getMonth() +1);
+  var day = date.getDate() < 10 ? '0' + date.getDate() : date.getDate();
+
+  return day + '.' + month + '.' + year;
+}
+
+console.log(getDateAgo(date, 0));
+
